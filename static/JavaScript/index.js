@@ -34,7 +34,7 @@ function selectRed(){
     //Traffic Light Picture
      ///Healthy Living Zone , 
      startCompass()
-     target.latitude = 1.3783;
+     target.latitude = 1.3783; // Got maximum distance
      target.longitude = 103.7625;
 
     showLoadingScreen();
