@@ -31,11 +31,11 @@ function hideLoadingScreen() {
 
 function selectRed(){
     //Bicycle Crossing
-
+    //Traffic Light Picture
      ///Healthy Living Zone , 
      startCompass()
-     target.latitude = 1.291844;
-     target.longitude = 103.852875;
+     target.latitude = 1.3783;
+     target.longitude = 103.7625;
 
     showLoadingScreen();
 
@@ -45,7 +45,7 @@ function selectRed(){
         // Turning Red On
         document.getElementById('redOff').id = 'red';
         var content = document.getElementById('red');
-        content.innerHTML = '<a-image id="red" src="./static/images/2D_Assets_low_res/BicycleCrossing_hanging.png" look-at="[camera]" scale="6 6 6" gps-projected-entity-place="latitude: 1.291844; longitude: 103.852875"></a-image>';
+        content.innerHTML = '<a-image id="red" src="./static/images/2D_Assets_low_res/BicycleCrossing_hanging.png" look-at="[camera]" scale="6 6 6" gps-projected-entity-place="latitude: 1.3783; longitude: 103.7625"></a-image>';
     }
 
     if(document.getElementById('green')){
@@ -104,6 +104,7 @@ function hideRed(){
 
 function selectGreen(){
     //Reimagine Active Mobility Zone
+    //People on Bicycle Image
     startCompass()
     target.latitude = 1.290731;
     target.longitude = 103.852240;
@@ -178,7 +179,7 @@ function hideGreen(){
 
 function selectYellow(){
     //Foot Path
-
+    //The guy with Blue Cap walking guy image
     ///MarketPlace  
     startCompass()
     target.latitude = 1.288072;
@@ -254,7 +255,7 @@ function hideYellow(){
 
 function selectBlue(){
     //Wayfinding
-    
+    //Left and Right arrow on the head image
     //Active Play Zone 
     startCompass()
     target.latitude = 1.290627;
@@ -329,7 +330,7 @@ function hideBlue(){
 
 function selectOrange(){
     //YellowBox_sitting
-    
+    //YellowBox Sitting Image
     //Bicycle Park (Reimagine Active Mobility Zone)
     startCompass()
     target.latitude = 1.289254;
@@ -404,7 +405,7 @@ function hideOrange(){
 
 function selectPurple(){
     //YellowBox Standing
-
+    //YellowBox Standing Image
     //Bicycle Zone(Market Place)  
     startCompass()
     target.latitude = 1.286627;
