@@ -106,8 +106,8 @@ function selectGreen(){
     //Reimagine Active Mobility Zone
     //People on Bicycle Image
     startCompass()
-    target.latitude = 1.290731;
-    target.longitude = 103.852240;
+    target.latitude = 1.3827;
+    target.longitude = 103.7623;
 
 
     showLoadingScreen();
@@ -118,7 +118,7 @@ function selectGreen(){
         // Turning Green On
         document.getElementById('greenOff').id = 'green';
         var content = document.getElementById('green')
-        content.innerHTML = '<a-image id="green" src="./static/images/2D_Assets_low_res/CyclingPath_4k.png" look-at="[camera]" scale="6 6 6" gps-projected-entity-place="latitude: 1.290731; longitude: 103.852240"></a-image>';
+        content.innerHTML = '<a-image id="green" src="./static/images/2D_Assets_low_res/CyclingPath_4k.png" look-at="[camera]" scale="6 6 6" gps-projected-entity-place="latitude: 1.3827; longitude: 103.7623"></a-image>';
     }
 
     if(document.getElementById('red')){
