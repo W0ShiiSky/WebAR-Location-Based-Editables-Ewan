@@ -363,9 +363,60 @@
             <a-entity id="purpleOff"></a-entity>
         </a-scene>
     </div>
+
+    <a-scene mindar-image="imageTargetSrc: ./static/mind-file/combined.mind; uiScanning: #scanning-overlay; filterMinCF:0.0001; filterBeta: 0.001;" color-space="sRGB" renderer="colorManagement: true, physicallyCorrectLights" vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false" embedded>
+        <!--Mind file is the image use to scan?-->
+        <a-assets>
+          <a-asset-item id="chinese_dragon_trim" src="./static/3D-file/gltf/chinese_dragon_trim/test1.gltf"></a-asset-item>
+          <a-asset-item id="cow_tiger" src="./static/3D-file/glb/cow_tiger.glb"></a-asset-item>
+        </a-assets>
+  
+        <!-- THIS IS THE FIRST VIDEO / IMAGE BASED AR TARGET -->
+        <a-entity id="example-target-0" mindar-image-target="targetIndex: 0">   
+          <a-gltf-model src="#cow_tiger" rotation="0 0 0" position="0 0 0" scale="0.35 0.35 0.35" animation-mixer></a-gltf-model>
+        </a-entity>
+  
+        <a-entity id="example-target-1" mindar-image-target="targetIndex: 1">   
+          <a-gltf-model src="#chinese_dragon_trim" rotation="0 0 0" position="0 -0.5 0.1" scale="0.0005 0.0005 0.0005" animation-mixer></a-gltf-model>
+        </a-entity>
+  
+        <a-camera position="0 0 0" look-controls="enabled: false" cursor="fuse: false; rayOrigin: mouse;" raycaster="far: ${customFields.libVersion}; objects: .clickable"></a-camera>
+  
+      </a-scene> <!-- a-scene the position ownself set one?-->
+
      <!-- Modal Toggling Script -->
      <script defer>
         document.addEventListener('DOMContentLoaded', function() {
+            const sceneEl = document.querySelector("a-scene");
+                let arSystem;
+                    sceneEl.addEventListener("loaded", function () { // sceneE1 variable stores a reference to the A-Frame scene element
+                    arSystem = sceneEl.systems["mindar-image-system"]; // arSystem variable will be assigned the MindAR image system when the scene is fully loaded
+                });
+                1; // What this for?
+
+            const exampleTarget0 = document.querySelector("#example-target-0");
+            const exampleTarget1 = document.querySelector("#example-target-1");
+
+            // arReady event triggered when ready
+            sceneEl.addEventListener("arReady", (event) => {
+            // console.log("MindAR is ready")
+            });
+            // arError event triggered when something went wrong. Mostly browser compatbility issue
+            sceneEl.addEventListener("arError", (event) => {
+            // console.log("MindAR failed to start")
+            });
+            // detect target found
+            exampleTarget.addEventListener("targetFound", (event) => {
+            console.log("target found");
+            document.getElementById("vid").play();
+            });
+            // detect target lost
+            exampleTarget.addEventListener("targetLost", (event) => {
+            console.log("target lost");
+            document.getElementById("vid").pause();
+            });
+
+
             function toggleLModal() {
                 // Get the modal
                 var modalL = document.getElementById("modalL");
